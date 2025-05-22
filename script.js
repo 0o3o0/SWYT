@@ -1,4 +1,4 @@
-function scrollBy(dir) {
+function scrollCarousel(dir) {
   const width = window.innerWidth;
   document.querySelector('.carousel').scrollBy({ left: dir * width, behavior: 'smooth' });
 }
@@ -14,9 +14,7 @@ const observer = new IntersectionObserver((entries) => {
 }, { threshold: 0.3 });
 
 document.querySelectorAll('.animate-on-scroll').forEach(el => {
-  el.classList.add('opacity-0', 'blur-lg');
   observer.observe(el);
 });
 
-// Floating background animation
-// Add CSS keyframes for .animate-float in your global stylesheet
+// Floating background handled via CSS only
