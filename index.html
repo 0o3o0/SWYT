@@ -1,3 +1,9 @@
+
+---
+
+**index.html**
+
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,70 +14,91 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
     html { scroll-behavior: smooth; }
+    .animate-fade-in { animation: fadeIn 0.8s ease-out forwards; }
+    @keyframes fadeIn { from { opacity: 0; filter: blur(10px); } to { opacity: 1; filter: blur(0); } }
   </style>
 </head>
 <body class="bg-gray-50 text-gray-800">
-  <section class="relative w-full h-screen flex flex-col items-center justify-center">
-    <div class="carousel flex overflow-x-scroll snap-x snap-mandatory w-full h-full">
-      <div class="slide snap-start flex-shrink-0 w-full h-full flex flex-col items-center justify-center space-y-4">
-        <h1 class="text-6xl font-extrabold text-center">StopWastingYourTime (SWYT)</h1>
-        <p class="text-2xl text-center">Automate your billing, reclaim your nights.</p>
-        <button class="px-6 py-3 bg-indigo-600 text-white rounded-xl shadow-lg hover:bg-indigo-700">Get Started</button>
+  <!-- Hero Carousel with inline illustration -->
+  <section class="relative w-full h-screen flex flex-col items-center justify-center overflow-hidden">
+    <img src="illustrations/hero-blob.svg" alt="abstract background" class="absolute inset-0 w-full h-full object-cover opacity-10 animate-float" />
+    <div class="relative z-10 w-full h-full flex carousel overflow-x-scroll snap-x snap-mandatory">
+      <!-- Slide 1 -->
+      <div class="slide snap-start flex-shrink-0 w-full h-full flex flex-col items-center justify-center space-y-6 animate-on-scroll">
+        <img src="illustrations/hero1.svg" alt="Automate billing illustration" class="w-1/3 animate-bounce" />
+        <h1 class="text-5xl md:text-7xl font-extrabold text-center">StopWastingYourTime (SWYT)</h1>
+        <p class="text-xl md:text-2xl text-center max-w-2xl">Automate your billing, reclaim your nights.</p>
+        <button class="mt-4 px-8 py-4 bg-indigo-600 text-white rounded-2xl shadow-lg hover:bg-indigo-700 transition">Get Started</button>
       </div>
-      <div class="slide snap-start flex-shrink-0 w-full h-full flex flex-col items-center justify-center space-y-4">
-        <h1 class="text-6xl font-extrabold text-center">Stop Spreadsheet Madness</h1>
-        <p class="text-2xl text-center">Let SWYT handle usage billing for you.</p>
-        <button class="px-6 py-3 bg-indigo-600 text-white rounded-xl shadow-lg hover:bg-indigo-700">Book a Demo</button>
+      <!-- Slide 2 -->
+      <div class="slide snap-start flex-shrink-0 w-full h-full flex flex-col items-center justify-center space-y-6 animate-on-scroll">
+        <img src="illustrations/hero2.svg" alt="No spreadsheets illustration" class="w-1/3 animate-bounce" />
+        <h1 class="text-5xl md:text-7xl font-extrabold text-center">Stop Spreadsheet Madness</h1>
+        <p class="text-xl md:text-2xl text-center max-w-2xl">Let SWYT handle usage billing for you.</p>
+        <button class="mt-4 px-8 py-4 bg-indigo-600 text-white rounded-2xl shadow-lg hover:bg-indigo-700 transition">Book a Demo</button>
       </div>
-      <div class="slide snap-start flex-shrink-0 w-full h-full flex flex-col items-center justify-center space-y-4">
-        <h1 class="text-5xl font-bold text-pink-600 text-center">“תפסיק לבזבז את הזמן שלך,</h1>
-        <p class="text-2xl text-center">תן לנו לחשב בשבילך ולך לאכול גלידה.”</p>
-        <button class="px-6 py-3 bg-pink-500 text-white rounded-xl shadow-lg hover:bg-pink-600">Let's Go!</button>
+      <!-- Slide 3 -->
+      <div class="slide snap-start flex-shrink-0 w-full h-full flex flex-col items-center justify-center space-y-6 animate-on-scroll">
+        <img src="illustrations/ice-cream.svg" alt="Ice cream illustration" class="w-1/3 animate-bounce" />
+        <h1 class="text-4xl md:text-6xl font-bold text-pink-600 text-center max-w-2xl">"Stop wasting your time,</h1>
+        <p class="text-xl md:text-2xl text-center max-w-2xl">let us calculate it for you while you enjoy ice cream."</p>
+        <button class="mt-4 px-8 py-4 bg-pink-500 text-white rounded-2xl shadow-lg hover:bg-pink-600 transition">Let's Go!</button>
       </div>
     </div>
-    <button onclick="scrollBy(-1)" class="absolute left-4 top-1/2 bg-white bg-opacity-70 p-2 rounded-full">‹</button>
-    <button onclick="scrollBy(1)" class="absolute right-4 top-1/2 bg-white bg-opacity-70 p-2 rounded-full">›</button>
+    <!-- Nav Arrows -->
+    <button onclick="scrollBy(-1)" class="absolute left-6 top-1/2 bg-white bg-opacity-70 p-3 rounded-full shadow hover:bg-opacity-100 transition">‹</button>
+    <button onclick="scrollBy(1)" class="absolute right-6 top-1/2 bg-white bg-opacity-70 p-3 rounded-full shadow hover:bg-opacity-100 transition">›</button>
   </section>
-  <section class="py-20 px-6 bg-white">
-    <h2 class="text-4xl font-bold text-center mb-8">Why SWYT?</h2>
-    <div class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
-      <div class="p-6 bg-gray-100 rounded-lg">
-        <h3 class="text-xl font-semibold">No More Manual Spreadsheets</h3>
-        <p>Saves hours of tedious work and prevents mistakes.</p>
+
+  <!-- Benefits & Objections -->
+  <section class="py-24 px-6 bg-white">
+    <h2 class="text-4xl font-bold text-center mb-12 animate-on-scroll">Why SWYT?</h2>
+    <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-10">
+      <div class="p-8 bg-gray-100 rounded-2xl animate-on-scroll">
+        <img src="illustrations/time-saving.svg" alt="Time saving" class="w-12 mb-4" />
+        <h3 class="text-2xl font-semibold mb-2">No More Manual Spreadsheets</h3>
+        <p>Saves hours of tedious work and prevents costly mistakes.</p>
       </div>
-      <div class="p-6 bg-gray-100 rounded-lg">
-        <h3 class="text-xl font-semibold">Accurate Invoicing</h3>
+      <div class="p-8 bg-gray-100 rounded-2xl animate-on-scroll">
+        <img src="illustrations/accuracy.svg" alt="Accuracy" class="w-12 mb-4" />
+        <h3 class="text-2xl font-semibold mb-2">Accurate Invoicing</h3>
         <p>Automatically calculate usage and avoid revenue leakage.</p>
       </div>
-      <div class="p-6 bg-gray-100 rounded-lg">
-        <h3 class="text-xl font-semibold">Scale Effortlessly</h3>
+      <div class="p-8 bg-gray-100 rounded-2xl animate-on-scroll">
+        <img src="illustrations/scale.svg" alt="Scale" class="w-12 mb-4" />
+        <h3 class="text-2xl font-semibold mb-2">Scale Effortlessly</h3>
         <p>Handles growing data without adding headcount.</p>
       </div>
     </div>
   </section>
-  <section class="py-20 px-6 bg-gray-50">
-    <h2 class="text-4xl font-bold text-center mb-8">What Our Clients Say</h2>
-    <div class="max-w-3xl mx-auto space-y-6">
-      <blockquote class="p-6 bg-white rounded-lg shadow">
+
+  <!-- Testimonials -->
+  <section class="py-24 px-6 bg-gray-50">
+    <h2 class="text-4xl font-bold text-center mb-12 animate-on-scroll">What Our Clients Say</h2>
+    <div class="max-w-3xl mx-auto space-y-8">
+      <blockquote class="p-8 bg-white rounded-2xl shadow animate-on-scroll">
         “SWYT boosted our billing accuracy by 30% and freed our ops team from late-night audits.”
-        <footer class="mt-4 text-right">— Dana, RevOps Lead at TechCo</footer>
+        <footer class="mt-4 text-right text-sm">— Dana, RevOps Lead at TechCo</footer>
       </blockquote>
-      <blockquote class="p-6 bg-white rounded-lg shadow">
+      <blockquote class="p-8 bg-white rounded-2xl shadow animate-on-scroll">
         “Implementing SWYT took just one afternoon; now our CFO sleeps better.”
-        <footer class="mt-4 text-right">— Yossi, Head of Finance at AppStart</footer>
+        <footer class="mt-4 text-right text-sm">— Yossi, Head of Finance at AppStart</footer>
       </blockquote>
     </div>
   </section>
-  <section class="py-20 px-6 bg-white text-center">
-    <h2 class="text-4xl font-bold mb-4">Ready to Stop Wasting Time?</h2>
-    <p class="mb-6 max-w-xl mx-auto">Enter your details below and our team will reach out to get you set up.</p>
-    <form id="leadForm" class="max-w-md mx-auto flex flex-col space-y-4">
-      <input type="text" name="name" placeholder="Full Name" required class="p-3 border rounded-lg"/>
-      <input type="email" name="email" placeholder="Work Email" required class="p-3 border rounded-lg"/>
-      <input type="text" name="company" placeholder="Company Name" required class="p-3 border rounded-lg"/>
-      <button type="submit" class="px-6 py-3 bg-indigo-600 text-white rounded-xl shadow-lg hover:bg-indigo-700">Get Started</button>
+
+  <!-- Lead Capture -->
+  <section class="py-24 px-6 bg-white text-center">
+    <h2 class="text-4xl font-bold mb-6 animate-on-scroll">Ready to Stop Wasting Time?</h2>
+    <p class="mb-8 max-w-xl mx-auto animate-on-scroll">Enter your details below and our team will reach out to get you set up.</p>
+    <form id="leadForm" class="max-w-md mx-auto flex flex-col space-y-6 animate-on-scroll">
+      <input type="text" name="name" placeholder="Full Name" required class="p-4 border rounded-lg" />
+      <input type="email" name="email" placeholder="Work Email" required class="p-4 border rounded-lg" />
+      <input type="text" name="company" placeholder="Company Name" required class="p-4 border rounded-lg" />
+      <button type="submit" class="px-8 py-4 bg-indigo-600 text-white rounded-2xl shadow-lg hover:bg-indigo-700 transition">Get Started</button>
     </form>
   </section>
+
   <script src="script.js"></script>
 </body>
 </html>
