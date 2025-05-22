@@ -3,5 +3,20 @@ function scrollBy(dir) {
   document.querySelector('.carousel').scrollBy({ left: dir * width, behavior: 'smooth' });
 }
 
-// TODO: Add scroll-triggered blur and entry animations via Intersection Observer
-// TODO: Integrate form webhook logic here
+// Intersection Observer for scroll-triggered animations
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('animate-fade-in');
+      entry.target.classList.remove('opacity-0', 'blur-lg');
+    }
+  });
+}, { threshold: 0.3 });
+
+document.querySelectorAll('.animate-on-scroll').forEach(el => {
+  el.classList.add('opacity-0', 'blur-lg');
+  observer.observe(el);
+});
+
+// Floating background animation
+// Add CSS keyframes for .animate-float in your global stylesheet
